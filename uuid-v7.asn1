@@ -1,0 +1,16 @@
+UuidV7 DEFINITIONS ::= BEGIN
+
+  UuidV7 ::= SEQUENCE {
+    unix-ts-ms  INTEGER,
+    rand-ab     BIT STRING (SIZE(74))
+  }
+
+  RawUuidV7 ::= SEQUENCE {
+    unix-ts-ms  INTEGER, -- The 48-bit Unix timestamp in milliseconds.
+    version     INTEGER, -- The 4-bit version field (0b0111 for UUIDv7).
+    rand-a      BIT STRING (SIZE(12)), -- The 12-bit `rand_a` part.
+    variant     BIT STRING (SIZE(2)), -- The 2-bit variant field (0b10).
+    rand-b      BIT STRING (SIZE(62)) -- The 62-bit `rand_b` part.
+  }
+
+END
